@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جاودان گیمز | دنیایی از خلاقیت و فناوری</title>
+    <meta name="description" content="جاودان گیمز استودیویی خلاق در توسعه بازی‌های ویدیویی برای موبایل، کامپیوتر و واقعیت مجازی است. با ما دنیایی از خلاقیت و فناوری را تجربه کنید.">
+
+<!-- کلیدواژه‌ها -->
+<meta name="keywords" content="جاودان گیمز, بازی‌سازی, توسعه بازی, استودیو بازی ایرانی, شرکت جاودان گیمز, شرکت بازی سازی و برنامه نویسی جاودان گیمز, بازی موبایل, بازی سازی ایرانی, شرکت باز سازی">
+
+<!-- نویسنده -->
+<meta name="author" content="Javdan Games">
+
+<!-- زبان -->
+<meta name="language" content="fa">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Vazir', sans-serif;
+            background: #0A1A2F;
+            color: white;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #0A1A2F 0%, #152642 50%, #1D3A65 100%);
+        }
+        
+        .glass-card {
+            background: rgba(10, 26, 47, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 200, 255, 0.2);
+        }
+        
+        .neon-text {
+            text-shadow: 0 0 10px rgba(0, 200, 255, 0.7), 0 0 20px rgba(0, 200, 255, 0.4);
+        }
+        
+        .btn-hover-effect {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-hover-effect:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 200, 255, 0.4);
+        }
+        
+        .btn-hover-effect:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+        
+        .btn-hover-effect:focus:after,
+        .btn-hover-effect:hover:after {
+            animation: ripple 1s ease-out;
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(50, 50);
+                opacity: 0;
+            }
+        }
+        
+        .game-card:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 0 15px 30px rgba(0, 200, 255, 0.2);
+        }
+        
+        .type-cursor {
+            color: #00C8FF;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(0, 200, 255, 0.5);
+            border-radius: 50%;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+            40% {transform: translateY(-20px) translateX(-50%);}
+            60% {transform: translateY(-10px) translateX(-50%);}
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-opacity-80 backdrop-blur-md transition-all duration-300" style="background: rgba(10, 26, 47, 0.8);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold text-white neon-text">جاودان گیمز</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-4 space-x-reverse">
+                        <a href="#home" class="text-white px-3 py-2 rounded-md text-sm font-medium hover:text-cyan-300 transition">خانه</a>
+                        <a href="#about" class="text-white px-3 py-2 rounded-md text-sm font-medium hover:text-cyan-300 transition">درباره ما</a>
+                        <a href="#projects" class="text-white px-3 py-2 rounded-md text-sm font-medium hover:text-cyan-300 transition">پروژه‌ها</a>
+                        <a href="#contact" class="text-white px-3 py-2 rounded-md text-sm font-medium hover:text-cyan-300 transition">تماس با ما</a>
+                        <a href="#" class="btn-hover-effect bg-gradient-to-r from-cyan-400 to-blue-500 text-white px-4 py-2 rounded-md text-sm font-medium">همکاری با ما</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white focus:outline-none">
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="text-white block px-3 py-2 rounded-md text-base font-medium hover:text-cyan-300 transition">خانه</a>
+                <a href="#about" class="text-white block px-3 py-2 rounded-md text-base font-medium hover:text-cyan-300 transition">درباره ما</a>
+                <a href="#projects" class="text-white block px-3 py-2 rounded-md text-base font-medium hover:text-cyan-300 transition">پروژه‌ها</a>
+                <a href="#contact" class="text-white block px-3 py-2 rounded-md text-base font-medium hover:text-cyan-300 transition">تماس با ما</a>
+                <a href="#" class="btn-hover-effect block bg-gradient-to-r from-cyan-400 to-blue-500 text-white px-4 py-2 rounded-md text-base font-medium mt-2">همکاری با ما</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden hero-gradient">
+        <div class="absolute inset-0 overflow-hidden">
+            <div id="particles-js"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center">
+            <div class="space-y-6">
+                <h1 class="text-4xl md:text-6xl font-bold text-white neon-text" id="typed">
+                    <span id="typed-text"></span><span class="type-cursor">|</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+                    ما در جاودان گیمز با ترکیب خلاقیت و فناوری پیشرفته، تجربه‌های بازی منحصر به فردی خلق می‌کنیم
+                </p>
+                <div class="flex justify-center space-x-4 space-x-reverse">
+                    <a href="#projects" class="btn-hover-effect bg-gradient-to-r from-cyan-400 to-blue-500 text-white px-6 py-3 rounded-md text-sm font-medium">مشاهده محصولات</a>
+                    <a href="#contact" class="btn-hover-effect bg-transparent border-2 border-cyan-400 text-cyan-400 px-6 py-3 rounded-md text-sm font-medium">تماس با ما</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-down">
+            <svg class="w-6 h-6 text-cyan-400 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white neon-text">درباره <span class="text-cyan-400">جاودان گیمز</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="glass-card p-8 rounded-xl reveal">
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold text-cyan-400">تخصص و تجربه ما</h3>
+                        <p class="text-gray-300 leading-relaxed">
+شرکت جاودان گیمز در تاریخ 20 اردیبهشت ماه 1404 شروع به کار کرد و تا کنون با انتشار چندین برنامه و بازی و سایت عملکرد خوبی داشته است, البته تمرکز اصلی این شرکت بر روی نرم افزار ها و بازی ها میباشد که در این حیطه هم نیز موفق بوده است                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+این شرکت با پلتفرم های زیادی کار کرده و از همین جهت در همه حوضه ها تجربه کافی را دارد                        </p>
+                        <div class="flex flex-wrap gap-4 justify-start">
+                            <span class="px-4 py-2 bg-blue-900 bg-opacity-50 rounded-full text-sm text-cyan-300">Android Studio</span>
+                            <span class="px-4 py-2 bg-blue-900 bg-opacity-50 rounded-full text-sm text-cyan-300">Unity 2022</span>
+                            <span class="px-4 py-2 bg-blue-900 bg-opacity-50 rounded-full text-sm text-cyan-300">Cyberix3d</span>
+                            <span class="px-4 py-2 bg-blue-900 bg-opacity-50 rounded-full text-sm text-cyan-300">Visual Studio Code</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="reveal">
+                    <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_usmfx6bp.json" background="transparent" speed="1" style="width: 100%; height: auto;" loop autoplay></lottie-player>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                <div class="glass-card p-6 rounded-xl reveal" style="transition-delay: 100ms;">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-900 bg-opacity-50 p-3 rounded-full">
+                            <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">انتشار برنامه در موبایل</h3>
+                    <p class="text-gray-300 text-sm">
+درحال حاضر 2 بازی در بازار و 1 بازی در مایکت و یک برنامه در بازار و یک برنامه هم در مایکت                    </p>
+                </div>
+                
+                <div class="glass-card p-6 rounded-xl reveal" style="transition-delay: 200ms;">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-900 bg-opacity-50 p-3 rounded-full">
+                            <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">عملکرد فوق‌العاده</h3>
+                    <p class="text-gray-300 text-sm">
+شرکت جاودان گیمز توانست در 3 ماه اولیه شروع به کار خود بتواند این برنامه هارا منتشر کند                    </p>
+                </div>
+                
+                <div class="glass-card p-6 rounded-xl reveal" style="transition-delay: 300ms;">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-900 bg-opacity-50 p-3 rounded-full">
+                            <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">طراحی خلاقانه</h3>
+                    <p class="text-gray-300 text-sm">
+                        با با ذهنی خلاق و منحصر به فرد، دنیاهای بصری منحصر به فرد و شخصیت‌های به یاد ماندنی خلق می‌کنیم.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-blue-900 bg-opacity-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white neon-text">پروژه‌های <span class="text-cyan-400">ما</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto mt-6">
+                    برخی از بازی‌ها و پروژه‌هایی که تاکنون منتشر کرده‌ایم
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-container">
+                <!-- Project cards will be loaded here -->
+            </div>
+            
+            <div class="text-center mt-12 reveal">
+                <a href="#" class="btn-hover-effect inline-block bg-gradient-to-r from-cyan-400 to-blue-500 text-white px-8 py-3 rounded-md text-sm font-medium">نمایش همه پروژه‌ها</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white neon-text">تماس با <span class="text-cyan-400">ما</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto mt-6">
+                    برای همکاری، سفارش پروژه یا هرگونه سوال با ما در ارتباط باشید
+                </p>
+            </div>
+            
+         
+                <div class="space-y-8 reveal">
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="text-xl font-bold text-white mb-4">اطلاعات تماس</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="bg-blue-900 bg-opacity-50 p-2 rounded-full">
+                                    <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <div class="mr-3">
+                                    <p class="text-sm text-gray-400">آدرس</p>
+                                    <p class="text-white"> مشهد , خیابان رئیسی11 </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-blue-900 bg-opacity-50 p-2 rounded-full">
+                                    <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                    </svg>
+                                </div>
+                                <div class="mr-3">
+                                    <p class="text-sm text-gray-400">تلفن</p>
+                                    <p class="text-white">1749 412 0915</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-blue-900 bg-opacity-50 p-2 rounded-full">
+                                    <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div class="mr-3">
+                                    <p class="text-sm text-gray-400">ایمیل</p>
+                                    <p class="text-white">1mohamdjavad1388@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="text-xl font-bold text-white mb-4">ما را دنبال کنید</h3>
+                        <div class="flex space-x-4 space-x-reverse">
+                            <!-- Instagram -->
+                            <a href="https://instagram.com/mo_javdanfard" target="_blank" class="bg-blue-900 bg-opacity-50 hover:bg-opacity-70 p-3 rounded-full transition">
+                                <svg class="w-5 h-5 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.9.3 2.4.5.6.2 1.1.5 1.5 1 .5.5.8.9 1 1.5.2.5.4 1.2.5 2.4.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.3 1.9-.5 2.4-.2.6-.5 1.1-1 1.5-.5.5-.9.8-1.5 1-.5.2-1.2.4-2.4.5-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.9-.3-2.4-.5-.6-.2-1.1-.5-1.5-1-.5-.5-.8-.9-1-1.5-.2-.5-.4-1.2-.5-2.4C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.3-1.9.5-2.4.2-.6.5-1.1 1-1.5.5-.5.9-.8 1.5-1 .5-.2 1.2-.4 2.4-.5C8.4 2.2 8.8 2.2 12 2.2m0-2.2C8.7 0 8.3 0 7.1.1 5.8.2 4.6.5 3.6 1.1c-1 .6-1.8 1.3-2.4 2.4C.5 4.6.2 5.8.1 7.1 0 8.3 0 8.7 0 12c0 3.3 0 3.7.1 4.9.1 1.3.4 2.5 1 3.5.6 1 .3 1.8 2.4 2.4 1 .6 2.2.9 3.5 1 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c1.3-.1 2.5-.4 3.5-1 1-.6 1.8-1.3 2.4-2.4.6-1 .9-2.2 1-3.5.1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.1-1.3-.4-2.5-1-3.5-.6-1-1.3-1.8-2.4-2.4C19.5.5 18.3.2 17.1.1 15.9 0 15.3 0 12 0z"/>
+                                    <path d="M12 5.8A6.2 6.2 0 1 0 12 18.2 6.2 6.2 0 1 0 12 5.8zm0 10.2a4 4 0 1 1 0-8.1 4 4 0 0 1 0 8.1z"/>
+                                    <circle cx="18.4" cy="5.6" r="1.44"/>
+                                </svg>
+                            </a>
+                    
+                            <!-- Telegram -->
+                            <a href="https://t.me/javdanfard" target="_blank" class="bg-blue-900 bg-opacity-50 hover:bg-opacity-70 p-3 rounded-full transition">
+                                <svg class="w-5 h-5 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9.036 16.207l-.385 5.419c.551 0 .791-.236 1.08-.519l2.592-2.475 5.373 3.926c.986.546 1.688.259 1.945-.914L23.9 3.704C24.243 2.153 23.285 1.515 22.161 2l-21.03 8.457c-1.43.571-1.413 1.373-.248 1.743l5.374 1.679L20.188 5.62c.593-.369 1.138-.165.692.204L9.036 16.207z"/>
+                                </svg>
+                            </a>
+                    
+                            <!-- Eitaa -->
+                            <a href="https://eitaa.com/s/Javdan_Games/" target="_blank" class="bg-blue-900 bg-opacity-50 hover:bg-opacity-70 p-3 rounded-full transition">
+                                <img src="https://s6.uupload.ir/files/eitaa-icon-colorful_2f58.png" alt="Eitaa" class="w-5 h-5 object-contain">
+                            </a>
+                        </div>
+                    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 bg-opacity-30 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold text-white neon-text mb-4">جاودان گیمز</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        استودیوی بازی‌سازی جاودان گیمز با هدف تولید بازی‌های با کیفیت و خلاقانه تأسیس شده است. ما به ارائه تجربه‌های بازی منحصر به فرد برای گیمرهای ایرانی و جهانی متعهد هستیم.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-cyan-400 mb-4">لینک‌های سریع</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-cyan-300 text-sm transition">خانه</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-cyan-300 text-sm transition">درباره ما</a></li>
+                        <li><a href="#projects" class="text-gray-300 hover:text-cyan-300 text-sm transition">پروژه‌ها</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-cyan-300 text-sm transition">تماس با ما</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-cyan-400 mb-4">خدمات</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-cyan-300 text-sm transition">توسعه بازی</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-cyan-300 text-sm transition">برنامه‌نویسی</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-cyan-300 text-sm transition">طراحی سه بعدی</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-cyan-300 text-sm transition">مشاوره بازی</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-cyan-400 mb-4">عضویت در خبرنامه</h4>
+                    <p class="text-gray-400 text-sm mb-4">برای دریافت آخرین اخبار و به روزرسانی‌های بازی‌های ما ایمیل خود را وارد کنید</p>
+                    <div class="flex">
+                        <input type="email" placeholder="ایمیل شما" class="bg-blue-900 bg-opacity-50 border border-gray-700 text-white rounded-r-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-cyan-400 w-full">
+                        <button class="btn-hover-effect bg-gradient-to-r from-cyan-400 to-blue-500 text-white px-4 py-2 rounded-l-md text-sm font-medium">عضویت</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">تمامی حقوق برای جاودان گیمز محفوظ است © ۱۴۰۲</p>
+                <div class="flex space-x-6 space-x-reverse mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-cyan-300 text-sm transition">قوانین و مقررات</a>
+                    <a href="#" class="text-gray-400 hover:text-cyan-300 text-sm transition">حریم خصوصی</a>
+                    <a href="#" class="text-gray-400 hover:text-cyan-300 text-sm transition">پرسش‌های متداول</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Typed.js animation
+        document.addEventListener('DOMContentLoaded', function() {
+            var typed = new Typed('#typed-text', {
+                strings: ['جاودان گیمز: دنیایی از خلاقیت و فناوری', 'استودیوی بازیسازی حرفه‌ای', 'تولید بازی‌های مدرن'],
+                typeSpeed: 50,
+                backSpeed: 30,
+                loop: true,
+                showCursor: false
+            });
+        });
+
+        // Scroll Reveal Animation
+        ScrollReveal().reveal('.reveal', {
+            duration: 1000,
+            delay: 200,
+            distance: '30px',
+            origin: 'bottom',
+            opacity: 0,
+            easing: 'ease-in-out',
+            interval: 200
+        });
+
+        // Load projects
+        document.addEventListener('DOMContentLoaded', function() {
+            const projects = [
+                {
+                    title: "پیکس ساز",
+                    description: "‏‏‏‏‏برنامه پیکس ساز به شما این امکان را میدهد که قطعات کامپیوتر مورد نظر خود را انتخاب و در نهایت قیمت نهایی اون رو مشاهده کنید. ‏‏و همچنین توضیح کامل تمامی قطعات کامپیوتر را می‌توانید از داخل همین برنامه ببینید و کاربرد آنها را متوجه شوید. ‏دارای قابلیت سرچ بین صد ها مدل قطعه کامپیوتر. ‏‏‏‏‏قطعاتی همچون سی پی یو , کارت گرافیک , رم و....,  ‏‏‏‏‏وجود انواع مدل ها از همه قیمت برای راحتی شما. امیدواریم از این برنامه لذت ببرید",
+                    image: "https://assets.myket.ir/icons/large/593b43b7-15b1-4fe7-8883-9e3c485ff555.png",
+                    tags: ["ابزار های کاربردی", "HTML", "اندروید", "بازار و مایکت"]
+                },
+                {
+                    title: "اطلاعات اسلامی",
+                    description: "‏‏‏‏برنامه اطلاعات اسلامی حاوی ۵٠ مرحله میباشد که شامل سوالات دینی درباره امام زمان، پیامبران، امامان و غیره است. ‏‏‏در این برنامه از شما سوالاتی پرسیده خواهد شد که شما باید به آنها جواب بدهید تا به مرحله بعدی راه پیدا کنید، ‏‏‏سوالات سطح معمولی هستند و سخت و آسان نیستند. ‏‏‏امیدواریم از این برنامه خوشتان بیاید❤️",
+                    image: "https://assets.myket.ir/icons/large/8414fb45-2fab-4047-9da1-1d0c589be6d7.png",
+                    tags: ["مایکت", "بازی", "اندروید"]
+                },
+                {
+                    title: "توپ سرگردان",
+                    description: "توپ سرگردان یک بازی استراتژی است که شما در واقع یک توپ قرمز هستید که باید از موانع پیش رو عبور کنید و به بالا بروید و به قله برسید و مرحله را تمام کنید. موانع پیش رو عبارتند از تپه ها و توپ های بزرگ متحرک که شما باید با موفقیت از آنان عبور کنید و به نقطه پایان برسید. امید است که از بازی لذت برده باشید",
+                    image: "https://s.cafebazaar.ir/images/upload/icons/air.appWanderingBall-20c2b21d-efab-4d11-849d-f81051398e67.png",
+                    tags: ["اندروید", "بازی", "بازار"]
+                },
+                {
+                    title: "اصله",
+                    description: "بازی اصله یک بازی سبک استراتژی است که شما باید از صخره ها و سنگ ها بالا برید و به خط پایان برسید. سرعت در این بازی ملاک است..",
+                    image: "https://s.cafebazaar.ir/images/icons/air.Asle-89ab765f-7932-4bea-b580-dff066c94591_512x512.png?x-img=v1/format,type_webp,lossless_false/resize,h_256,w_256,lossless_false/optimize",
+                    tags: ["موبایل", "بازار", "اندروید", "بازی"]
+                },
+                {
+                    title: "قرآن تنزیل",
+                    description: "‏قرآن فوق پیشرفته و صوتی تنزیل. همراه با ترجمه فارسی,انگلیسی,فرانسوی و.... ‏قرآن کامل 604 صفحه همراه با صوت آیات و صوت ترجمه و امکان جستجو در تمامی سوره ها و آیات قرآن کریم. ‏میتوانید فقط با یک کلمه سرچ کردن تمامی آیه هایی که در آن آن کلمه به کار رفته است را مشاهده کنید. امکان شخصی سازی فونت و قاری به چند زبان مختلف.",
+                    image: "https://parspng.com/wp-content/uploads/2022/09/quranpng.parspng.com-6-300x300.png",
+                    tags: ["اندروید", "اختصاصی", "مذهبی"]
+                },
+                {
+                    title: "به زودی....",
+                    description: "به زودی منتشر میشود....",
+                    image: "https://lh5.googleusercontent.com/proxy/3I7pO7I4NqcFTRWhGnS1aM4IG3Ssnbtexi-eCCCQEb1sC_MNJeyisFagc0RbW6goOWuoTvU0ploHLxTv50BwBWYNyykfvz8l",
+                    tags: ["PC", "PS5", "Xbox"]
+                }
+            ];
+
+            const container = document.getElementById('projects-container');
+            
+            projects.forEach((project, index) => {
+                const card = document.createElement('div');
+                card.className = 'game-card glass-card p-4 rounded-xl transition-all duration-500 h-full reveal';
+                if (index > 2) card.style.transitionDelay = `${(index-2)*100}ms`;
+                
+                card.innerHTML = `
+                    <div class="relative overflow-hidden rounded-lg mb-4 h-48">
+                        <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">${project.title}</h3>
+                    <p class="text-gray-300 text-sm mb-4">${project.description}</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        ${project.tags.map(tag => `<span class="px-3 py-1 bg-blue-900 bg-opacity-50 rounded-full text-xs text-cyan-300">${tag}</span>`).join('')}
+                    </div>
+                    <a href="#" class="btn-hover-effect inline-block border border-cyan-400 text-cyan-400 px-4 py-2 rounded-md text-sm font-medium">جزئیات بیشتر</a>
+                `;
+                
+                container.appendChild(card);
+            });
+        });
+
+        // Smooth scrolling for links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+                nav.style.backgroundColor = 'rgba(10, 26, 47, 0.95)';
+            } else {
+                nav.classList.remove('shadow-lg');
+                nav.style.backgroundColor = 'rgba(10, 26, 47, 0.8)';
+            }
+        });
+
+        // Simple particle effect
+        function createParticles() {
+            const container = document.getElementById('particles-js');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random properties
+                const size = Math.random() * 3 + 1;
+                const posX = Math.random() * window.innerWidth;
+                const posY = Math.random() * window.innerHeight;
+                const opacity = Math.random() * 0.5 + 0.1;
+                const animationDuration = Math.random() * 10 + 5;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}px`;
+                particle.style.top = `${posY}px`;
+                particle.style.opacity = opacity;
+                particle.style.animation = `float ${animationDuration}s ease-in-out infinite alternate`;
+                
+                container.appendChild(particle);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', createParticles);
+    </script>
+</body>
+</html>
